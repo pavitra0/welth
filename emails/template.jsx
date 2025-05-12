@@ -9,8 +9,6 @@ import {
   Text,
 } from "@react-email/components";
 
-
-
 export default function EmailTemplate({
   userName = "",
   type = "budget-alert",
@@ -43,7 +41,7 @@ export default function EmailTemplate({
               <div style={styles.stat}>
                 <Text style={styles.text}>Net</Text>
                 <Text style={styles.heading}>
-                  ${data?.stats.totalIncome - data?.stats.totalExpenses}
+                  ${(data?.stats.totalIncome - data?.stats.totalExpenses).toFixed(2)}
                 </Text>
               </div>
             </Section>
@@ -56,7 +54,7 @@ export default function EmailTemplate({
                   ([category, amount]) => (
                     <div key={category} style={styles.row}>
                       <Text style={styles.text}>{category}</Text>
-                      <Text style={styles.text}>${amount}</Text>
+                      <Text style={styles.text}>: ${amount}</Text>
                     </div>
                   )
                 )}
@@ -142,7 +140,7 @@ const styles = {
     backgroundColor: "#fff",
     margin: "0 auto",
     padding: "20px",
-    border:'0.5px solid #e5e7eb',
+    border: "0.5px solid #e5e7eb",
     barderRadius: "15px",
     boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
   },
@@ -177,12 +175,12 @@ const styles = {
     barderRadius: "4px",
     boxShadow: "0 1px 2px rgba(0,0,0,0.05f)",
   },
-  section:{
+  section: {
     backgroundColor: "#f9fafb",
     marginTop: "32px",
     padding: "20px",
     barderRadius: "5px",
-    border:'0.5px solid #e5e7eb',
+    border: "0.5px solid #e5e7eb",
   },
   // footer : {
   //   backgroundColor: '#333',
@@ -193,10 +191,10 @@ const styles = {
   //   width: '50%',
   //   bottom: '0'
   // },
-  row:{
-    display:"flex",
-    justifyContent:"space-between",
-    padding:'12px 0',
-    borderBottom:"1px solid #e5e7eb"
+  row: {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "12px 0",
+    borderBottom: "1px solid #e5e7eb",
   },
 };
